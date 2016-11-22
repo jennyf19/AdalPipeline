@@ -1,0 +1,18 @@
+﻿@model AdalPipeline.Models.Request
+
+@{
+    ViewBag.Title = "CreateRequest";
+    Layout = "/Views/Shared/_Layout.cshtml";
+    Html.EnableClientValidation(false);
+}
+<h2>@Html.LabelForModel()</h2>
+
+@using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post, new { @class = "requestClass", data_formType = "request" }))
+{
+    <div class="column">
+        @Html.EditorForModel()
+    </div>
+    
+    <input type="submit" value="Submit" />
+}
+

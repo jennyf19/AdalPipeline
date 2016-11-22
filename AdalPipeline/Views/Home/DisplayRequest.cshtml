@@ -1,0 +1,26 @@
+﻿@model AdalPipeline.Models.Request
+@{
+    ViewBag.Title = "DisplayRequest";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Display Request</h2>
+<div class="dataElem">
+    @Html.Label("Author Name:")
+    @Html.DisplayFor(m => m.AuthorName)
+</div>
+
+<div class="dataElem">
+    @Html.Label("Release Title:")
+    @Html.DisplayFor(m => m.ReleaseTitle)
+</div>
+
+<div class="dataElem">
+    @Html.Label("Version Number:")
+    @Html.DisplayFor(m => m.ReleaseVersion)
+</div>
+
+<div class="dataElem">
+    @Html.Label("Release Notes:")
+    @Html.DisplayFor(m => m.ReleaseNotes)
+</div>

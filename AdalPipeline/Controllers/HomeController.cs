@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AdalPipeline.Models;
 
 namespace AdalPipeline.Controllers
 {
@@ -12,6 +13,17 @@ namespace AdalPipeline.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult CreateRequest()
+        {
+            return View(new Request());
+        }
+
+        [HttpPost]
+        public ActionResult CreateRequest(Request request)
+        {
+            return View("DisplayRequest", request);
         }
 
         public ActionResult About()
