@@ -1,33 +1,20 @@
-﻿@model AdalPipeline.Models.Request
+﻿@using System.Activities.Statements
+@using System.Web.UI.WebControls
+@using AdalPipeline.Controllers
+@model AdalPipeline.Models.Request
+
 @{
-    ViewBag.Title = "DisplayRequest";
-    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Submission completed";
+
 }
 
-    <h2>Display Request</h2>
-    <div class="dataElem">
-        @Html.Label("Author Name:")
-        @Html.DisplayFor(m => m.AuthorName)
-    </div>
+<h4>Your release has been submitted for review</h4>
+<p>Author name:<b>@Html.DisplayFor(m => m.AuthorName)</b></p>
+<p>Release title:<b>@Html.DisplayFor(m => m.ReleaseTitle)</b></p>
+<p>Release version number:<b>@Html.DisplayFor(m => m.ReleaseVersion)</b></p>
+<p>Release notes:<b>@Html.Raw("<pre>" + Html.Encode(Model.ReleaseNotes) + "</pre>")</b></p>
 
-    <div class="dataElem">
-        @Html.Label("Release Title:")
-        @Html.DisplayFor(m => m.ReleaseTitle)
-    </div>
 
-    <div class="dataElem">
-        @Html.Label("Version Number:")
-        @Html.DisplayFor(m => m.ReleaseVersion)
-    </div>
-
-    <div class="dataElem">
-        @Html.Label("Release Notes:")
-
-        <textarea id="ReleaseNotes" name="ReleaseNotes"></textarea>
-   
-    </div>
-
-    <div class="button">
-        <p>Please check the above information carefully. If correct, click submit below.</p>
-        <button type="submit">Submit your release for approval</button>
-    </div>
+<p>If the following is correct, please click the "submit" button below</p>
+<br />
+<button type="submit">Submit your release for approval</button>

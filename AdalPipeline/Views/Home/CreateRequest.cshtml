@@ -5,21 +5,17 @@
     Layout = "/Views/Shared/_Layout.cshtml";
     Html.EnableClientValidation(false);
 }
+
+@using System.Web.UI.WebControls
+
 <h2>@Html.LabelForModel()</h2>
 
-@using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post, new { @class = "requestClass", data_formType = "request" }))
+@using (Html.BeginForm())
 {
-    <div class="column">
-        @Html.EditorForModel()
-    </div>
-    
-    <input type="submit" value="Submit" />
+    @Html.ValidationSummary()
+    <p>Your name: @Html.EditorFor(m => m.AuthorName)</p>
+    <p>Release name: @Html.EditorFor(m => m.ReleaseTitle)</p>
+    <p>Version number: @Html.EditorFor(m => m.ReleaseVersion)</p>
+    <p>Release notes: @Html.EditorFor(m => m.ReleaseNotes)</p>
+    <input type="submit" value="OK" />
 }
-
-<!--<div>
-    <form method="post" enctype="multipart/form-data">
-        <label for="ReleaseNotes">Upload release notes:</label>
-        <input type="file" id="ReleaseNotes" name="ReleaseNotes" />
-    </form>
-</div>
-<br />-->
