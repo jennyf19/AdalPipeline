@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -8,15 +9,15 @@ using System.Web;
 
 namespace AdalPipeline.Models
 {
-    [DisplayName("Request Form:")]
+    //[DisplayName("Request Form:")]
     public class Request
     {
-        public string AuthorName { get; set; }
         public string ReleaseTitle { get; set; }
         public string ReleaseVersion { get; set; }
 
         [DataType(DataType.MultilineText)]
         public string ReleaseNotes { get; set; }
 
+        //public string DateTime { get; set; }
     }
 }

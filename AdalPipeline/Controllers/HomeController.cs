@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,11 +26,6 @@ namespace AdalPipeline.Controllers
         [HttpPost]
         public ActionResult CreateRequest(Request request)
         {
-            if (string.IsNullOrEmpty(request.AuthorName))
-            {
-                ModelState.AddModelError("AuthorName", "Please enter your name");
-            }
-
             if (string.IsNullOrEmpty(request.ReleaseTitle))
             {
                 ModelState.AddModelError("ReleaseTitle", "Please enter a title for the release");
@@ -40,18 +36,27 @@ namespace AdalPipeline.Controllers
                 ModelState.AddModelError("ReleaseVersion", "The Version number needs to be in semantic versioning (vx.xx.xxx)");
             }
 
+            if (string.IsNullOrEmpty(request.ReleaseNotes))
+            {
+                ModelState.AddModelError("ReleaseNotes", "Please include Release Notes for the product");
+            }
+
             if (ModelState.IsValid)
             {
                 return View("DisplayRequest", request);
             }
-            else
-            {
-                return View();
-            }
-
+            return View();
         }
 
+        public ActionResult ApproveRequest(Request request)
+        {
+           //ViewData["ReleaseTitle"] = request.ReleaseTitle;
+            //ViewData["ReleaseVersion"] = request.ReleaseVersion;
+            //ViewData["ReleaseNotes"] = request.ReleaseNotes;
 
+            return View("ApproveRequest");
+        }
+      
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

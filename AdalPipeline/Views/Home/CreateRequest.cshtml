@@ -13,9 +13,9 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary()
-    <p>Your name: @Html.EditorFor(m => m.AuthorName)</p>
     <p>Release name: @Html.EditorFor(m => m.ReleaseTitle)</p>
     <p>Version number: @Html.EditorFor(m => m.ReleaseVersion)</p>
     <p>Release notes: @Html.EditorFor(m => m.ReleaseNotes)</p>
-    <input type="submit" value="OK" />
+ 
+    <input type="submit" value="Submit Request" />
 }

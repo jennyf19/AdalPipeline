@@ -4,17 +4,15 @@
 @model AdalPipeline.Models.Request
 
 @{
-    ViewBag.Title = "Submission completed";
+    ViewBag.Title = "Approve Requests";
 
 }
 
-<h4>Your release has been submitted for review</h4>
-<p>Author name:<b>@Html.DisplayFor(m => m.AuthorName)</b></p>
-<p>Release title:<b>@Html.DisplayFor(m => m.ReleaseTitle)</b></p>
-<p>Release version number:<b>@Html.DisplayFor(m => m.ReleaseVersion)</b></p>
-<p>Release notes:<b>@Html.Raw("<pre>" + Html.Encode(Model.ReleaseNotes) + "</pre>")</b></p>
-
-
-<p>If the following is correct, please click the "submit" button below</p>
-<br />
-<button type="submit">Submit your release for approval</button>
+@using (Html.BeginForm("ApproveRequest", "Home"))
+{
+    <p>Release title:<b>@Html.DisplayFor(m => m.ReleaseTitle)</b></p>
+    <p>Release version number:<b>@Html.DisplayFor(m => m.ReleaseVersion)</b></p>
+    <p>Release notes:<b>@Html.Raw("<pre>" + Html.Encode(Model.ReleaseNotes) + "</pre>")</b></p>
+    <p>If the following is correct, please click the "submit" button below</p><br/>
+    <input type="submit" value="Click here to submit release for approval"/>
+}
