@@ -4,11 +4,11 @@
 @model AdalPipeline.Models.Request
 
 @{
-    ViewBag.Title = "Approve Requests";
+    ViewBag.Title = "Approve Release";
 
 }
 
-@using (Html.BeginForm("ApproveRequest", "Home"))
+@using (Html.BeginForm("Completed", "Home"))
 {
     <br/>
     <p>Release title:<b>@Html.DisplayFor(m => m.ReleaseTitle)</b></p>

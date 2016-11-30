@@ -19,3 +19,20 @@
  
     <input type="submit" value="Submit Request" />
 }
+
+@using (@Html.BeginForm())
+{
+    <label for="ReleaseTitle">Product Title</label>
+    <br/>
+    @Html.TextBox("ReleaseTitle")
+    <br/>
+    <label for="ReleaseVersion">Version Number</label>
+    <br/>
+    @Html.TextBox("ReleaseVersion")
+    <br/>
+    <label for="ReleaseNotes"> Release Notes</label>
+    <br/>
+    @Html.TextArea("ReleaseNotes")
+    <br/>
+    <input type="submit" value="Submit Request"/>
+}

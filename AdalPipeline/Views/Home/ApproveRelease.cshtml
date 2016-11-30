@@ -1,0 +1,45 @@
+﻿@model AdalPipeline.Models.Request
+@using System.Activities.Statements
+@using System.ServiceModel
+@using AdalPipeline.Controllers
+@using System.Web.UI.WebControls
+
+<head id="Head1" runat="server">
+    <style type="text/css">
+        html {
+            background-color: gray;
+        }
+
+        .column {
+            float: left;
+            width: 300px;
+            border: solid 1px black;
+            margin-right: 10px;
+            padding: 5px;
+            background-color: white;
+            min-height: 500px;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+<h3>Releases Awaiting Approval</h3>
+<div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+        @using (Html.BeginForm())
+        {
+            <p>Release Title: <b>@Html.DisplayFor(m => m.ReleaseTitle)</b></p>
+            <p>Release Version: <b>@Html.DisplayFor(m => m.ReleaseVersion)</b></p>
+            <p>Release Notes: <b>@Html.DisplayFor(m => m.ReleaseNotes)</b></p>
+            <input type="submit" value="Approve" />
+            <input type="submit" value="Reject" />
+        }
+    </asp:ContentPlaceHolder>
+</div>
+<div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+</div>
+</body>
