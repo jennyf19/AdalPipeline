@@ -56,6 +56,8 @@ namespace AdalPipeline.Controllers
 
             return View("ApproveRequest");
         }
+
+       
       
         public ActionResult About()
         {

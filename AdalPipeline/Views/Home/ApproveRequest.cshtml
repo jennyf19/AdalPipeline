@@ -4,17 +4,11 @@
 @using System.Web.UI.WebControls
 
 <h3>Releases awaiting approval</h3>
-@using (Html.BeginForm("Home"))
+@using (Html.BeginForm())
 {
-    <p>
-        Release Title: <b>@Html.DisplayFor(m => m.ReleaseTitle)</b>
-    </p>
-    <p>
-        Release Version: <b>@Html.DisplayFor(m => m.ReleaseVersion)</b>
-    </p>
-    <p>
-        Release Notes: <b>@Html.Raw("<pre>" + Html.Encode(Model.ReleaseNotes) + "</pre>")</b>
-    </p>
+    <p>Release Title: <b>@Html.DisplayFor(m => m.ReleaseTitle)</b></p>
+    <p>Release Version: <b>@Html.DisplayFor(m => m.ReleaseVersion)</b></p>
+    <p>Release Notes: <b>@Html.DisplayFor(m => m.ReleaseNotes)</b></p>
     <input type="submit" value="Approve"/>
     <input type="submit" value="Reject"/>
 }

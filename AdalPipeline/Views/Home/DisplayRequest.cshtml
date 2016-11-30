@@ -10,9 +10,11 @@
 
 @using (Html.BeginForm("ApproveRequest", "Home"))
 {
+    <br/>
     <p>Release title:<b>@Html.DisplayFor(m => m.ReleaseTitle)</b></p>
     <p>Release version number:<b>@Html.DisplayFor(m => m.ReleaseVersion)</b></p>
-    <p>Release notes:<b>@Html.Raw("<pre>" + Html.Encode(Model.ReleaseNotes) + "</pre>")</b></p>
+    <p>Release notes:<b>@Html.DisplayFor(m => m.ReleaseNotes)</b></p>
     <p>If the following is correct, please click the "submit" button below</p><br/>
     <input type="submit" value="Click here to submit release for approval"/>
 }
+
